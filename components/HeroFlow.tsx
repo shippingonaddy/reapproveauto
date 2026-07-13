@@ -10,11 +10,28 @@ export default function HeroFlow() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const approvalAmount =
     income && parseInt(income) >= 1500
       ? Math.min(parseInt(income) * 6, 18000)
       : 8500;
+
+  async function handleLeadSubmit() {
+    setSubmitting(true);
+    try {
+      await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, contactMethod, income, payType, zip }),
+      });
+    } catch (e) {
+      console.error("Lead submit failed:", e);
+    } finally {
+      setSubmitting(false);
+      setStep("approved");
+    }
+  }
 
   return (
     <div className="flex flex-col items-center px-4 pt-4 pb-16">
@@ -33,7 +50,8 @@ export default function HeroFlow() {
           name={name} setName={setName}
           phone={phone} setPhone={setPhone}
           contactMethod={contactMethod} setContactMethod={setContactMethod}
-          onSubmit={() => setStep("approved")}
+          submitting={submitting}
+          onSubmit={handleLeadSubmit}
         />
       )}
       {step === "approved" && <ApprovedStep name={name} contactMethod={contactMethod} />}
@@ -231,12 +249,13 @@ function FormStep({
 
 /* ── INTAKE ── */
 function IntakeStep({
-  amount, name, setName, phone, setPhone, contactMethod, setContactMethod, onSubmit,
+  amount, name, setName, phone, setPhone, contactMethod, setContactMethod, submitting, onSubmit,
 }: {
   amount: number;
   name: string; setName: (v: string) => void;
   phone: string; setPhone: (v: string) => void;
   contactMethod: string; setContactMethod: (v: string) => void;
+  submitting: boolean;
   onSubmit: () => void;
 }) {
   const formatted = new Intl.NumberFormat("en-US", {
@@ -315,10 +334,10 @@ function IntakeStep({
 
       <button
         onClick={onSubmit}
-        disabled={!name || !phone || !contactMethod}
+        disabled={!name || !phone || !contactMethod || submitting}
         className="w-full bg-[#00C896] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#00B584] active:scale-95 transition-all text-[#0A0F0D] font-black text-lg py-5 rounded-2xl tracking-tight"
       >
-        I&apos;m Ready — Reach Out to Me
+        {submitting ? "Sending…" : "I'm Ready — Reach Out to Me"}
       </button>
       <p className="text-center text-[#8BA898] text-xs">
         No spam. Just one {contactMethod === "Text" ? "text" : contactMethod === "Call" ? "call" : "text or call"} from our team.
