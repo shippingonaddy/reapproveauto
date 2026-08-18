@@ -15,5 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/bad-credit-car-loans`,   lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/buy-here-pay-here-dallas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/faq`,                    lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/privacy-policy`,         lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
   ];
 }
