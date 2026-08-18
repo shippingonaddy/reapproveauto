@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 
 /* ─── GLOBAL METADATA ─── */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://reapproveauto.com"),
+  metadataBase: new URL("https://www.reapproveauto.com"),
   title: {
     default:
       "Buy Here Pay Here DFW | $999 Down Bad Credit Cars | ReApprove Auto",
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     "car lots that work with bad credit near me",
     "subprime auto loans Dallas TX",
   ],
-  authors: [{ name: "ReApprove Auto", url: "https://reapproveauto.com" }],
+  authors: [{ name: "ReApprove Auto", url: "https://www.reapproveauto.com" }],
   creator: "ReApprove Auto",
   openGraph: {
     title: "Buy Here Pay Here DFW | $999 Down | ReApprove Auto",
     description:
       "Pre-qualify in 60 seconds. No bank. No BS. Bad credit, repo, first-time buyer — all welcome. DFW's fintech-powered in-house auto financing.",
-    url: "https://reapproveauto.com",
+    url: "https://www.reapproveauto.com",
     siteName: "ReApprove Auto",
     locale: "en_US",
     type: "website",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: { canonical: "https://reapproveauto.com" },
+  alternates: { canonical: "https://www.reapproveauto.com" },
 };
 
 /* ─── JSON-LD SCHEMAS ─── */
@@ -84,12 +84,12 @@ const organizationSchema = {
   "@graph": [
     {
       "@type": ["AutoDealer", "FinancialService", "Organization"],
-      "@id": "https://reapproveauto.com/#organization",
+      "@id": "https://www.reapproveauto.com/#organization",
       name: "ReApprove Auto",
-      url: "https://reapproveauto.com",
+      url: "https://www.reapproveauto.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://reapproveauto.com/logo.png",
+        url: "https://www.reapproveauto.com/logo.png",
         width: 400,
         height: 120,
       },
@@ -169,16 +169,16 @@ const organizationSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://reapproveauto.com/#website",
+      "@id": "https://www.reapproveauto.com/#website",
       name: "ReApprove Auto",
-      url: "https://reapproveauto.com",
-      publisher: { "@id": "https://reapproveauto.com/#organization" },
+      url: "https://www.reapproveauto.com",
+      publisher: { "@id": "https://www.reapproveauto.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
           urlTemplate:
-            "https://reapproveauto.com/search?q={search_term_string}",
+            "https://www.reapproveauto.com/search?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },

@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/"],
       },
     ],
-    sitemap: "https://reapproveauto.com/sitemap.xml",
-    host: "https://reapproveauto.com",
+    sitemap: "https://www.reapproveauto.com/sitemap.xml",
+    host: "https://www.reapproveauto.com",
   };
 }

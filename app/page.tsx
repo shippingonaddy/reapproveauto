@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Buy Here Pay Here DFW | $999 Down Bad Credit Cars | ReApprove Auto",
   description:
     "Pre-qualify in 60 seconds for buy here pay here cars in DFW. Bad credit, no credit, repo OK. In-house financing from $999 down. Dallas · Fort Worth · Arlington.",
-  alternates: { canonical: "https://reapproveauto.com" },
+  alternates: { canonical: "https://www.reapproveauto.com" },
 };
 
 /* ─── FAQ data (reused for schema below) ─── */

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     title: "Buy Here Pay Here Dallas TX | $999 Down | ReApprove Auto",
     description:
       "Bad credit car lots in Dallas TX. Get approved with $999 down. No bank, no broker. BHPH financing available today.",
-    url: "https://reapproveauto.com/buy-here-pay-here-dallas",
+    url: "https://www.reapproveauto.com/buy-here-pay-here-dallas",
   },
   alternates: {
-    canonical: "https://reapproveauto.com/buy-here-pay-here-dallas",
+    canonical: "https://www.reapproveauto.com/buy-here-pay-here-dallas",
   },
 };
 
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["AutoDealer", "LocalBusiness"],
-  "@id": "https://reapproveauto.com/buy-here-pay-here-dallas#localbusiness",
+  "@id": "https://www.reapproveauto.com/buy-here-pay-here-dallas#localbusiness",
   name: "ReApprove Auto — Dallas Buy Here Pay Here",
-  url: "https://reapproveauto.com/buy-here-pay-here-dallas",
+  url: "https://www.reapproveauto.com/buy-here-pay-here-dallas",
   description:
     "Buy here pay here car dealer serving Dallas TX. In-house financing for bad credit buyers with down payments starting at $999. BHPH, subprime, and no credit check options available.",
   telephone: "+14694350306", // TODO: replace with your real number

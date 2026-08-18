@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "FAQ — Buy Here Pay Here & Bad Credit Car Loans in DFW",
   description:
     "Answers to the most common questions about buy here pay here financing, bad credit car loans, $999 down options, and BHPH dealers in DFW Texas.",
-  alternates: { canonical: "https://reapproveauto.com/faq" },
+  alternates: { canonical: "https://www.reapproveauto.com/faq" },
 };
 
 /* ─── ALL FAQ DATA ─── */

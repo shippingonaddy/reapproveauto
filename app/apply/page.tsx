@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Apply for In-House Financing | $999 Down Bad Credit OK",
   description:
     "Pre-qualify for in-house auto financing in 60 seconds. Bad credit, no credit, repo OK. $999 min down. No bank needed. ReApprove Auto — DFW.",
-  alternates: { canonical: "https://reapproveauto.com/apply" },
+  alternates: { canonical: "https://www.reapproveauto.com/apply" },
   robots: { index: true, follow: true },
 };
 

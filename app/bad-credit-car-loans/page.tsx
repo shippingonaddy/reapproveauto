@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     title: "Bad Credit Car Loans Texas | $999 Down | ReApprove Auto",
     description:
       "Bad credit? No credit? Repo? We connect Texas buyers with in-house lenders who say yes. $999 min down. Pre-qualify in 60 seconds.",
-    url: "https://reapproveauto.com/bad-credit-car-loans",
+    url: "https://www.reapproveauto.com/bad-credit-car-loans",
   },
   alternates: {
-    canonical: "https://reapproveauto.com/bad-credit-car-loans",
+    canonical: "https://www.reapproveauto.com/bad-credit-car-loans",
   },
 };
 
@@ -27,7 +27,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "ReApprove Auto",
-    url: "https://reapproveauto.com",
+    url: "https://www.reapproveauto.com",
   },
   areaServed: { "@type": "State", name: "Texas" },
   offers: {

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://reapproveauto.com";
+const BASE = "https://www.reapproveauto.com";
 
 const CITY_SLUGS = [
   "buy-here-pay-here-dallas",
