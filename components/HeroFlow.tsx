@@ -11,6 +11,7 @@ export default function HeroFlow() {
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const approvalAmount =
     income && parseInt(income) >= 1500
@@ -19,17 +20,22 @@ export default function HeroFlow() {
 
   async function handleLeadSubmit() {
     setSubmitting(true);
+    setFailed(false);
     try {
-      await fetch("/api/submit-lead", {
+      const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone, contactMethod, income, payType, zip }),
       });
+      // fetch does NOT throw on 4xx/5xx — check explicitly or we show
+      // "you're in" for a lead that was never saved.
+      if (!res.ok) throw new Error(`submit-lead ${res.status}`);
+      setStep("approved");
     } catch (e) {
       console.error("Lead submit failed:", e);
+      setFailed(true);
     } finally {
       setSubmitting(false);
-      setStep("approved");
     }
   }
 
@@ -51,6 +57,7 @@ export default function HeroFlow() {
           phone={phone} setPhone={setPhone}
           contactMethod={contactMethod} setContactMethod={setContactMethod}
           submitting={submitting}
+          failed={failed}
           onSubmit={handleLeadSubmit}
         />
       )}
@@ -249,13 +256,14 @@ function FormStep({
 
 /* ── INTAKE ── */
 function IntakeStep({
-  amount, name, setName, phone, setPhone, contactMethod, setContactMethod, submitting, onSubmit,
+  amount, name, setName, phone, setPhone, contactMethod, setContactMethod, submitting, failed, onSubmit,
 }: {
   amount: number;
   name: string; setName: (v: string) => void;
   phone: string; setPhone: (v: string) => void;
   contactMethod: string; setContactMethod: (v: string) => void;
   submitting: boolean;
+  failed: boolean;
   onSubmit: () => void;
 }) {
   const formatted = new Intl.NumberFormat("en-US", {
@@ -331,6 +339,21 @@ function IntakeStep({
           ))}
         </div>
       </div>
+
+      {failed && (
+        <div className="bg-[#2A1416] border border-[#FF5C5C]/40 rounded-2xl p-5">
+          <p className="text-[#FF8A8A] font-bold text-sm mb-1">That didn&apos;t send.</p>
+          <p className="text-[#8BA898] text-sm mb-4">
+            Our system hiccuped — your info didn&apos;t reach us. Tap below and we&apos;ll take it over the phone right now.
+          </p>
+          <a
+            href="tel:+14694350306"
+            className="block w-full bg-[#00C896] text-[#0A0F0D] font-black text-center py-4 rounded-xl tracking-tight"
+          >
+            Call (469) 435-0306
+          </a>
+        </div>
+      )}
 
       <button
         onClick={onSubmit}
